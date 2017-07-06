@@ -1,11 +1,9 @@
-$(document).ready(function() {
-  var number = 0;
-  setInterval(function() {
-    $("#display").text(number);
-    if (number === 9) {
-      number = 0;
-    } else {
-      number += 1;
-    }
-  }, 1000);
-});
+var count = prompt("Please enter your max number:");
+
+for (var i=0;i<=count;i++) {
+   (function(tick) {
+       setTimeout(function() {
+       $("#ticker").append(tick);
+       }, 1000 * (tick+1) );
+   })(i);
+}
