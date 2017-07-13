@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
-  var count = parseInt(prompt("Please enter your max number:"));
-  var bpm = parseInt(prompt("please enter tempo '1000 is 60 beats per minute'"));
+  var count = parseInt(prompt("Please enter your max number"));
+  var bpm = parseInt(prompt("Enter Tempo in Beats per Minute'"));
+  var tempo = 60000/bpm;
   var colors = ["black", "yellow"];
+
 
   var colorsCounter = 0;
   var interval = setInterval(function() {
@@ -16,14 +18,21 @@ $(document).ready(function() {
         colorsCounter += 1;
       }
     };
-}, bpm); //cant get css to flash when less than 1000 in firefox//
+}, tempo); //cant get css to flash when less than 1000 all the time//
+
+
+// $("#stop").click(function() {
+//   window.stop();
+//   clearInterval();
+//   clearTimeout();
+// });
 
 
 for (var i=0;i<=count;i++) {
    (function(tick) {
        setTimeout(function() {
        $("#ticker").text(tick);
-     }, bpm * (tick+1) );
+     }, tempo * (tick+1) );
    })(i);
 }
 });
